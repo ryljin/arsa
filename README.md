@@ -7,7 +7,7 @@ To create the env for a new developer, run `make dev_env`.
 
 # Objectives (from assignment instructions):
 
-[ ] create an API server for a geographic database.
+- create an API server for a geographic database.
 
 - implement CRUD operations on a related set of data stored in a database. (countries, states, and cities)
 
