@@ -25,5 +25,5 @@ def create(fields: dict) -> str:
         raise ValueError(f'Name missing in fields: {fields.get(NAME)}')
 
     _id = str(len(cities) + 1)
-    cities[id] = fields
+    cities[_id] = fields
     return _id
