@@ -5,6 +5,20 @@ To build production, type `make prod`.
 
 To create the env for a new developer, run `make dev_env`.
 
+# Objectives from assignment instructions:
+
+- create an API server for a geographic database.
+
+- implement CRUD operations on a related set of data stored in a database. (countries, states, and cities)
+
+- deploy the project to the cloud using CI/CD.
+
+- include a dozen or more endpoints.
+
+- ensure all endpoints and functions have unit tests.
+
+- thoroughly documented each endpoint for [Swagger](https://swagger.io/).
+
 ## Ideas
 The following is a list of ideas involving geographic data we could implement:
 - Natural Disasters ([earthquakes](https://www.kaggle.com/datasets/warcoder/earthquake-dataset), [tsunamis](https://www.kaggle.com/datasets/andrewmvd/tsunami-dataset))
