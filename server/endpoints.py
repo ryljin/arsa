@@ -2,14 +2,13 @@
 This is the file containing all of the endpoints for our flask app.
 The endpoint called `endpoints` will return all available endpoints.
 """
-# from http import HTTPStatus
-
+from http import HTTPStatus
 from flask import Flask, request
 from flask_restx import Resource, Api, fields  # Namespace
 from flask_cors import CORS
 from server import cities
 
-# import werkzeug.exceptions as wz
+import werkzeug.exceptions as wz
 
 app = Flask(__name__)
 CORS(app)
@@ -24,8 +23,6 @@ MESSAGE = 'Message'
 
 @api.route(HELLO_EP)
 class HelloWorld(Resource):
-
-    
     """
     The purpose of the HelloWorld class is to have a simple test to see if the
     app is working at all.
@@ -39,8 +36,6 @@ class HelloWorld(Resource):
 
 @api.route(ENDPOINT_EP)
 class Endpoints(Resource):
-
-    
     """
     This class will serve as live, fetchable documentation of what endpoints
     are available in the system.
@@ -52,13 +47,12 @@ class Endpoints(Resource):
         endpoints = sorted(rule.rule for rule in api.app.url_map.iter_rules())
         return {"Available endpoints": endpoints}
 
+
 city_model = api.model('City', {'name':
     fields.String(required=True, description='City Name')})
 
 @api.route('/cities')
 class CityList(Resource):
-
-    
     @api.doc('list_cities')
     def get(self):
         return [{'id': cid, **data} for cid, data in cities.cities.items()]
@@ -71,9 +65,9 @@ class CityList(Resource):
         return {'id': city_id, **data}, 201
 
 @api.route('/cities/<string:city_id>')
-class City(Resource):
 
-    
+
+class City(Resource):
     @api.doc('get_city')
     def get(self, city_id):
         city = cities.cities.get(city_id)
@@ -96,3 +90,4 @@ class City(Resource):
             api.abort(404, "City not found")
         del cities.cities[city_id]
         return '', 204
+
