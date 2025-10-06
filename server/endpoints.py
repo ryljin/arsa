@@ -49,7 +49,7 @@ class Endpoints(Resource):
 
 
 city_model = api.model(
-    'City', 
+    'City',
     {
         'name': fields.String(required=True, description='City Name')
     }
@@ -61,9 +61,9 @@ class CityList(Resource):
     @api.doc('list_cities')
     def get(self):
         return [
-            {'id': cid, **data}
-            for cid, data in cities.cities.items()
-    ]
+               {'id': cid, **data}
+               for cid, data in cities.cities.items()
+        ]
 
     @api.expect(city_model)
     @api.doc('create_city')
